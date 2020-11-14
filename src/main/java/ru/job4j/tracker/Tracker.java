@@ -64,6 +64,16 @@ public class Tracker {
         return index != -1 ? true : false;
     }
 
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, this.size - index);
+            items[this.size - 1] = null;
+            this.size--;
+        }
+         return index != -1 ? true : false;
+    }
+
     @Override
     public String toString() {
         return "Tracker{" +
