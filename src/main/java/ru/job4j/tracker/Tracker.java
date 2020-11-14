@@ -26,9 +26,9 @@ public class Tracker {
     }
 
     public Item[] findByAll(Item[] items) {
-        Item[] itemsWithoutNull = new Item[items.length];
+        Item[] itemsWithoutNull = new Item[this.size];
         int size = 0;
-        for (int index = 0; index < items.length; index++) {
+        for (int index = 0; index < this.size; index++) {
             Item item = items[index];
             if (item != null) {
                 itemsWithoutNull[size] = item;
@@ -49,5 +49,14 @@ public class Tracker {
             }
         }
         return Arrays.copyOf(rsl, size);
+    }
+
+    @Override
+    public String toString() {
+        return "Tracker{" +
+                "items=" + Arrays.toString(items) +
+                ", ids=" + ids +
+                ", size=" + size +
+                '}';
     }
 }
