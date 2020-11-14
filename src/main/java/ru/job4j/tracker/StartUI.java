@@ -4,11 +4,9 @@ import java.time.format.DateTimeFormatter;
 
 public class StartUI {
     public static void main(String[] args) {
-        Item item = new Item();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-        String currentDateTimeFormat = item.getDataTime().format(formatter);
-        System.out.println("Текущие дата и время после форматирования: " + currentDateTimeFormat);
-        Item itemLogin = new Item(1, "John");
-        System.out.println(itemLogin);
+       Item item = new Item(1, "John");
+       Tracker track = new Tracker();
+       track.add(item);
+       System.out.println(track.findById(1));
     }
 }
