@@ -57,7 +57,8 @@ public class Tracker {
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        if (index != -1) {
+        boolean exeption = index != -1;
+        if (exeption) {
             items[index] = item;
             item.setId(id);
         }
@@ -66,7 +67,8 @@ public class Tracker {
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        if (index != -1) {
+        boolean exeption = index != -1;
+        if (exeption) {
             System.arraycopy(items, index + 1, items, index, this.size - index);
             items[this.size - 1] = null;
             this.size--;
