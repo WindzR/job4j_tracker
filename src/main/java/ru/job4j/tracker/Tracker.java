@@ -35,19 +35,19 @@ public class Tracker {
                 size++;
             }
         }
-        itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, size);
-        return itemsWithoutNull;
+        return Arrays.copyOf(itemsWithoutNull, size);
     }
 
-    public Item findByName(String name) {
-        Item rsl = null;
-        for (int index = 0; index < size; index++) {
+    public Item[] findByName(String name) {
+        Item[] rsl = new Item[items.length];
+        int size = 0;
+        for (int index = 0; index < items.length; index++) {
             Item item = items[index];
             if (item.getName().equals(name)) {
-                rsl = item;
-                break;
+                rsl[size] = item;
+                size++;
             }
         }
-        return rsl;
+        return Arrays.copyOf(rsl, size);
     }
 }
