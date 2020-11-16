@@ -64,7 +64,7 @@ public class Tracker {
             items[this.size - 1] = null;
             this.size--;
         }
-         return index != -1 ? true : false;
+         return exeption;
     }
 
     @Override
