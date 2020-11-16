@@ -53,7 +53,7 @@ public class Tracker {
             items[index] = item;
             item.setId(id);
         }
-        return index != -1 ? true : false;
+        return exeption;
     }
 
     public boolean delete(int id) {
