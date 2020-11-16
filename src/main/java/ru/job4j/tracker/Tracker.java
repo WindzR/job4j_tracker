@@ -19,22 +19,13 @@ public class Tracker {
     }
 
     public Item[] findByAll(Item[] items) {
-        Item[] itemsWithoutNull = new Item[this.size];
-        int size = 0;
-        for (int index = 0; index < this.size; index++) {
-            Item item = items[index];
-            if (item != null) {
-                itemsWithoutNull[size] = item;
-                size++;
-            }
-        }
-        return Arrays.copyOf(itemsWithoutNull, size);
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String name) {
-        Item[] rsl = new Item[items.length];
+        Item[] rsl = new Item[this.size];
         int size = 0;
-        for (int index = 0; index < items.length; index++) {
+        for (int index = 0; index < this.size; index++) {
             Item item = items[index];
             if (item.getName().equals(name)) {
                 rsl[size] = item;
