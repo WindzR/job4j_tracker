@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class StartUI {
+
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
         while (run) {
@@ -19,8 +20,7 @@ public class StartUI {
                 System.out.println("Item has been successfully created!");
             } else if (select == 1) {
                 System.out.println("==== List of Items ====");
-                Item[] items = new Item[100];
-                Item[] allItems = tracker.findByAll(items);
+                Item[] allItems = tracker.findByAll();
                 for ( Item i : allItems) {
                     System.out.println(i);
                 }
@@ -31,7 +31,6 @@ public class StartUI {
                 System.out.println("Enter new name item: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
-                tracker.replace(id, item);
                 if (tracker.replace(id, item)) {
                     System.out.println("Item has been edit successfully!");
                 } else {
@@ -41,7 +40,6 @@ public class StartUI {
                 System.out.println("==== Delete item ====");
                 System.out.println("Enter id delete item: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                tracker.delete(id);
                 if (tracker.delete(id)) {
                     System.out.println("Item has been successfully deleted!");
                 } else {
@@ -51,8 +49,7 @@ public class StartUI {
                 System.out.println("==== Find by Id ====");
                 System.out.println("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                Item item = new Item();
-                item = tracker.findById(id);
+                Item item = tracker.findById(id);
                 if (item != null) {
                     System.out.println("==== Item ====");
                     System.out.println(item);
@@ -63,7 +60,7 @@ public class StartUI {
                 System.out.println("==== Find by name ====");
                 System.out.println("Enter name: ");
                 String name = scanner.nextLine();
-                if (tracker.findByName(name) != null) {
+                if (tracker.findByName(name).length > 0) {
                     System.out.println("==== Item ====");
                     System.out.println(Arrays.toString(tracker.findByName(name)));
                 } else {
