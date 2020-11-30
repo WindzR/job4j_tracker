@@ -1,9 +1,9 @@
 package ru.job4j.tracker;
 
-import org.junit.Ignore;
 import org.junit.Test;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertThat;
 
 public class StartUITest {
 
@@ -25,28 +25,30 @@ public class StartUITest {
     public void whenReplaceItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Replaced item"));
-        // Входные данные должны содержать ID добавленной заявки item.getId()
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[] {"2", "1", "New item name", "6"}
+                new String[] {"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
-                new CreateAction(),
                 new EditAction(),
                 new ExitAction()
         };
         new StartUI().init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
+        assertThat(tracker.findById(item.getId()).getName(), is("New item name"));
     }
 
-    /*@Test
-    private void whenDeleteItem() {
+    @Test
+    public void whenDeleteItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
-        String[] answers = {String.valueOf(item.getId()), null};
-        StartUI.deleteItem(new StubInput(answers), tracker);
-        Item deleted = tracker.findById(item.getId());
-        assertNull(deleted);
-    }*/
+        Item item = tracker.add(new Item("Deleted item"));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+                new DeleteAction(),
+                new ExitAction()
+        };
+        new StartUI().init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()), is(nullValue()));
+    }
 }
