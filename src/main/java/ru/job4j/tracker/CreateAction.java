@@ -17,7 +17,7 @@ public class CreateAction implements UserAction {
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         tracker.add(item);
-        System.out.println("Item has been successfully created!");
+        out.println("Item has been successfully created!");
         return true;
     }
 }

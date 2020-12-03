@@ -18,9 +18,9 @@ public class EditAction implements UserAction {
         String name = input.askStr("Enter new name item: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
-            System.out.println("Item has been edit successfully!");
+            out.println("Item has been edit successfully!");
         } else {
-            System.out.println("Error! Can't find this item!");
+            out.println("Error! Can't find this item!");
         }
         return true;
     }
