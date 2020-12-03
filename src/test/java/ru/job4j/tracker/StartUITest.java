@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.Arrays;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
@@ -90,9 +93,9 @@ public class StartUITest {
         item2.setName("item 2");
         tracker.add(item2);
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findByAll(), is(
-                "[<" + item1.toString() + ">, <" +
-                               item2.toString() + ">]"
+        assertThat(Arrays.toString(tracker.findByAll()), is(
+                "[" + item1.toString() + ", " +
+                               item2.toString() + "]"
         ));
     }
 
@@ -112,8 +115,8 @@ public class StartUITest {
         item1.setName("item name");
         tracker.add(item1);
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findById(1), is(
-                "<" + item1.toString() + ">"
+        assertThat(tracker.findById(1).toString(), is(
+                item1.toString()
         ));
     }
 
@@ -132,8 +135,8 @@ public class StartUITest {
         item1.setName("item name");
         tracker.add(item1);
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findByName("item name"), is(
-                "[<" +  item1.toString() + ">]"
+        assertThat(Arrays.toString(tracker.findByName("item name")), is(
+                "[" +  item1.toString() + "]"
         ));
     }
 }
