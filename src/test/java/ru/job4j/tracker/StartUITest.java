@@ -1,9 +1,6 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-
-import java.util.Arrays;
-
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
@@ -89,13 +86,15 @@ public class StartUITest {
         Item item1 = new Item();
         item1.setName("item 1");
         tracker.add(item1);
-        Item item2 = new Item();
-        item2.setName("item 2");
-        tracker.add(item2);
         new StartUI(out).init(in, tracker, actions);
-        assertThat(Arrays.toString(tracker.findByAll()), is(
-                "[" + item1.toString() + ", " +
-                               item2.toString() + "]"
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                "0. ==== List of Items ====" + System.lineSeparator() +
+                "1. ==== Exit ====" + System.lineSeparator() +
+                item1.toString() + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. ==== List of Items ====" + System.lineSeparator() +
+                "1. ==== Exit ====" + System.lineSeparator()
         ));
     }
 
@@ -103,11 +102,10 @@ public class StartUITest {
     public void whenFindId() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "item name", "1", "1", "2" }
+                new String[] {"0", "1", "1" }
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(out),
                 new FindByIdAction(out),
                 new ExitAction(out)
         };
@@ -115,8 +113,15 @@ public class StartUITest {
         item1.setName("item name");
         tracker.add(item1);
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findById(1).toString(), is(
-                item1.toString()
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                "0. ==== Find by Id ====" + System.lineSeparator() +
+                "1. ==== Exit ====" + System.lineSeparator() +
+                "==== Item ====" + System.lineSeparator() +
+                item1.toString() + System.lineSeparator() +
+                "Menu." + System.lineSeparator() +
+                "0. ==== Find by Id ====" + System.lineSeparator() +
+                "1. ==== Exit ====" + System.lineSeparator()
         ));
     }
 
@@ -135,8 +140,15 @@ public class StartUITest {
         item1.setName("item name");
         tracker.add(item1);
         new StartUI(out).init(in, tracker, actions);
-        assertThat(Arrays.toString(tracker.findByName("item name")), is(
-                "[" +  item1.toString() + "]"
+        assertThat(out.toString(), is(
+                "Menu." + System.lineSeparator() +
+                "0. ==== Find by name ====" + System.lineSeparator() +
+                "1. ==== Exit ====" + System.lineSeparator() +
+                 "==== Item ====" + System.lineSeparator() +
+                 item1.toString() + System.lineSeparator() +
+                 "Menu." + System.lineSeparator() +
+                 "0. ==== Find by name ====" + System.lineSeparator() +
+                 "1. ==== Exit ====" + System.lineSeparator()
         ));
     }
 }
