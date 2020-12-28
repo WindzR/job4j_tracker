@@ -24,13 +24,10 @@ public class Tracker {
 
     public List<Item> findByName(String name) {
         List<Item> rsl = new ArrayList<>();
-        int index = 0;
         for (Item value : items) {
-            Item item = items.get(index);
-            if (item.getName().equals(name)) {
-                rsl.add(item);
+            if (value.getName().equals(name)) {
+                rsl.add(value);
             }
-            index++;
         }
         return rsl;
     }
@@ -40,7 +37,7 @@ public class Tracker {
         int index = 0;
         if (!items.isEmpty()) {
             for (Item value : items) {
-                if (items.get(index).getId() == id) {
+                if (value.getId() == id) {
                     rsl = index;
                     break;
                 }
