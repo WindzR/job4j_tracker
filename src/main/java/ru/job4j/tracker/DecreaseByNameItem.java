@@ -6,6 +6,6 @@ public class DecreaseByNameItem implements Comparator<Item> {
 
     @Override
     public int compare(Item first, Item second) {
-        return -1 * first.getName().compareTo(second.getName());
+        return second.getName().compareTo(first.getName());
     }
 }
