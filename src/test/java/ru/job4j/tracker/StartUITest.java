@@ -67,8 +67,8 @@ public class StartUITest {
         actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                "0. ==== Exit ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. ==== Exit ====" + System.lineSeparator()
         ));
     }
 
@@ -87,13 +87,13 @@ public class StartUITest {
         tracker.add(item1);
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                "0. ==== List of Items ====" + System.lineSeparator() +
-                "1. ==== Exit ====" + System.lineSeparator() +
-                item1.toString() + System.lineSeparator() +
-                "Menu." + System.lineSeparator() +
-                "0. ==== List of Items ====" + System.lineSeparator() +
-                "1. ==== Exit ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. ==== List of Items ====" + System.lineSeparator()
+                        + "1. ==== Exit ====" + System.lineSeparator()
+                        + item1.toString() + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. ==== List of Items ====" + System.lineSeparator()
+                        + "1. ==== Exit ====" + System.lineSeparator()
         ));
     }
 
@@ -112,14 +112,14 @@ public class StartUITest {
         tracker.add(item1);
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                "0. ==== Find by Id ====" + System.lineSeparator() +
-                "1. ==== Exit ====" + System.lineSeparator() +
-                "==== Item ====" + System.lineSeparator() +
-                item1.toString() + System.lineSeparator() +
-                "Menu." + System.lineSeparator() +
-                "0. ==== Find by Id ====" + System.lineSeparator() +
-                "1. ==== Exit ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. ==== Find by Id ====" + System.lineSeparator()
+                        + "1. ==== Exit ====" + System.lineSeparator()
+                        + "==== Item ====" + System.lineSeparator()
+                        + item1.toString() + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. ==== Find by Id ====" + System.lineSeparator()
+                        + "1. ==== Exit ====" + System.lineSeparator()
         ));
     }
 
@@ -138,14 +138,14 @@ public class StartUITest {
         tracker.add(item1);
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                "0. ==== Find by name ====" + System.lineSeparator() +
-                "1. ==== Exit ====" + System.lineSeparator() +
-                 "==== Item ====" + System.lineSeparator() +
-                 item1.toString() + System.lineSeparator() +
-                 "Menu." + System.lineSeparator() +
-                 "0. ==== Find by name ====" + System.lineSeparator() +
-                 "1. ==== Exit ====" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. ==== Find by name ====" + System.lineSeparator()
+                        + "1. ==== Exit ====" + System.lineSeparator()
+                        + "==== Item ====" + System.lineSeparator()
+                        + item1.toString() + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. ==== Find by name ====" + System.lineSeparator()
+                        + "1. ==== Exit ====" + System.lineSeparator()
         ));
     }
 
@@ -153,7 +153,7 @@ public class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] { "7", "0" }
+                new String[] {"7", "0"}
         );
         Tracker tracker = new Tracker();
         List<UserAction> actions = new ArrayList<>();

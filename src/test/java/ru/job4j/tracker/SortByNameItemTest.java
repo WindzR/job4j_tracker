@@ -19,7 +19,8 @@ public class SortByNameItemTest {
                 new Item(3, "Alex")
         );
         Collections.sort(items, new SortByNameItem());
-        assertThat(new String[] {items.get(0).getName(), items.get(1).getName(), items.get(2).getName()},
+        assertThat(new String[] {items.get(0).getName(), items.get(1).getName(),
+                        items.get(2).getName()},
                 is(new String[] {"Alex", "Eugene", "Frodo"}));
     }
 
@@ -31,7 +32,8 @@ public class SortByNameItemTest {
                 new Item(3, "Constantin")
         );
         Collections.sort(items, new DecreaseByNameItem());
-        assertThat(new String[] {items.get(0).getName(), items.get(1).getName(), items.get(2).getName()},
+        assertThat(new String[] {items.get(0).getName(), items.get(1).getName(),
+                        items.get(2).getName()},
                 is(new String[] {"Constantin", "Boris", "Alex"}));
     }
 }
