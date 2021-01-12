@@ -1,25 +1,15 @@
 package ru.job4j.tracker;
 
 public class TrackerSingle2 {
-    private static TrackerSingle2 instance;
-    private Tracker tracker = new Tracker();
+    private static Tracker instance;
 
     private TrackerSingle2() {
     }
 
-    public static TrackerSingle2 getInstance() {
+    public static Tracker getInstance() {
         if (instance == null) {
-            instance = new TrackerSingle2();
+            instance = new Tracker();
         }
         return instance;
-    }
-
-    public Tracker getTracker() {
-        return tracker;
-    }
-
-    @Override
-    public String toString() {
-        return "" + tracker + "";
     }
 }

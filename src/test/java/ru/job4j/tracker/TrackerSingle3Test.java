@@ -8,8 +8,8 @@ public class TrackerSingle3Test {
 
     @Test
     public void getInstance() {
-        TrackerSingle3 tracker = TrackerSingle3.getInstance();
-        TrackerSingle3 tracker2 = TrackerSingle3.getInstance();
+        Tracker tracker = TrackerSingle3.getInstance();
+        Tracker tracker2 = TrackerSingle3.getInstance();
         assertSame(tracker, tracker2);
     }
 }
