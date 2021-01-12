@@ -11,7 +11,7 @@ public class TrackerSingle3 {
         return INSTANCE;
     }
 
-    public static void main(String[] args) {
-        TrackerSingle3 tracker = TrackerSingle3.getInstance();
+    public Tracker getTracker() {
+        return tracker;
     }
 }

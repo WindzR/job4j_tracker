@@ -13,4 +13,8 @@ public class TrackerSingle4 {
     private static final class Holder {
         private static final TrackerSingle4 INSTANCE = new TrackerSingle4();
     }
+
+    public Tracker getTracker() {
+        return tracker;
+    }
 }
