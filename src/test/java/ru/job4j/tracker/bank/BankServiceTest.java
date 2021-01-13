@@ -1,4 +1,4 @@
-package ru.job4j.bank;
+package ru.job4j.tracker.bank;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
