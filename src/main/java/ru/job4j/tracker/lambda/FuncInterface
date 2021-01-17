@@ -1,0 +1,13 @@
+Comparator<Student> comparator = new Comparator<Student>;
+    @Override
+    public int compare(Student o1, Student o2) {
+        return o1.getId().compareTo(o2.getId);
+    }
+    
+public static void getMark(List<Student> list, Function<Student, Mark> func) {
+    for(Student student : list) {
+        func.apply(student);
+    }
+}
+    
+    
