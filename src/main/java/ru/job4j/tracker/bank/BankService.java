@@ -33,18 +33,6 @@ public class BankService {
      * @param passport паспорт пользователя(ключ для поиска объектов USER)
      * @param account счет пользователя USER
      */
-//    public void addAccount(String passport, Account account) {
-//        User user = findByPassport(passport);
-//        if (user == null) {
-//            return;
-//        }
-//        List<Account> listAccounts = users.get(user);
-//        if (!listAccounts.contains(account)) {
-//            listAccounts.add(account);
-//        } else {
-//            System.out.println("This account is already exist!");
-//        }
-//    }
 
     public void addAccount(String passport, Account account) {
         Optional<User> user = findByPassport(passport);
@@ -63,22 +51,12 @@ public class BankService {
      * @param passport паспорт пользователя(ключ для поиска)
      * @return объект класса USER
      */
-//    public User findByPassport(String passport) {
-//        return users.keySet()
-//                .stream()
-//                .filter(user -> user.getPassport().equals(passport))
-//                .findFirst()
-//                .orElse(null);
-//    }
 
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = Optional.of(user);
-                break;
-            }
-        }
+        Optional<User> rsl = users.keySet()
+                .stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findFirst();
         return rsl;
     }
 
@@ -88,28 +66,15 @@ public class BankService {
      * @param requisite ключ для поиска реквизита счета(номер счета)
      * @return счет пользователя ACCOUNT
      */
-//    public Account findByRequisite(String passport, String requisite) {
-//        User user = findByPassport(passport);
-//        if (user != null) {
-//            return users.get(user)
-//                    .stream()
-//                    .filter(data -> data.getRequisite().equals(requisite))
-//                    .findFirst()
-//                    .orElse(null);
-//        }
-//        return null;
-//    }
 
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<Account> rsl = Optional.empty();
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            for (Account account : users.get(user.get())) {
-                if (account.getRequisite().equals(requisite)) {
-                    rsl = Optional.of(account);
-                    break;
-                }
-            }
+            return users.get(user.get())
+                    .stream()
+                    .filter(data -> data.getRequisite().equals(requisite))
+                    .findFirst();
         }
         return rsl;
     }
