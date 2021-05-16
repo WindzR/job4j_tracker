@@ -4,12 +4,12 @@
 [![Build Status](https://travis-ci.com/WindzR/job4j_tracker.svg?branch=master)](https://travis-ci.com/WindzR/job4j_tracker)
 [![codecov](https://codecov.io/gh/WindzR/job4j_tracker/branch/master/graph/badge.svg?token=BA3BKUY3J7)](https://codecov.io/gh/WindzR/job4j_tracker)
 
-![java](https://images.app.goo.gl/jK2hNny9gvvSADvz8)
-![intellij idea](https://images.app.goo.gl/BomVCzGmvC99nAk99)
-![github](https://images.app.goo.gl/tLBBFuUsBFHWCgPh8)
-![checkstyle](https://images.app.goo.gl/WPn2ztkUkVj98P8dA)
-![JUnit](https://images.app.goo.gl/UMfUnUePE9PNFyjW9)
-![postgre](https://images.app.goo.gl/D8kbhvHi1GmtPh3T6)
+![java](800px-Java_logo.svg.png)
+![intellij idea](intellij.jpg)
+![github](github-logo.jpg)
+![checkstyle](header-checkstyle-logo.png)
+![JUnit](junit.png)
+![postgre](Postgresql-logo.png)
 
 ###Этот проект представляет собой CRUD консольное приложение и применение ООП принципов.
 
