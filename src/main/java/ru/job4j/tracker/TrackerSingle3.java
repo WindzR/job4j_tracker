@@ -1,12 +1,12 @@
 package ru.job4j.tracker;
 
 public class TrackerSingle3 {
-    private static Tracker instance = new Tracker();
+    private static MemTracker instance = new MemTracker();
 
     private TrackerSingle3() {
     }
 
-    public static Tracker getInstance() {
+    public static MemTracker getInstance() {
         return instance;
     }
 }
