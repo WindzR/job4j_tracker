@@ -22,7 +22,7 @@ public class StartUITest {
         actions.add(new CreateAction(out));
         actions.add(new ExitAction(out));
         new StartUI(out).init(in, memTracker, actions);
-        assertThat(memTracker.findByAll().get(0).getName(), is("Item name"));
+        assertThat(memTracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
